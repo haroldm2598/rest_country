@@ -42,8 +42,8 @@ function Country() {
 				</div>
 
 				<div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10'>
-					{isSelected === undefined
-						? countryApi?.map((item, index) => (
+					{isSelected !== undefined
+						? regionApi?.map((item, index) => (
 								<Fragment key={index}>
 									<Card
 										imageSrc={item.flags.png}
@@ -52,7 +52,17 @@ function Country() {
 									/>
 								</Fragment>
 						  ))
-						: regionApi?.map((item, index) => (
+						: hasSearch !== undefined
+						? searchCountry?.map((item, index) => (
+								<Fragment key={index}>
+									<Card
+										imageSrc={item.flags.png}
+										title={item.name.common}
+										population={item.population}
+									/>
+								</Fragment>
+						  ))
+						: countryApi?.map((item, index) => (
 								<Fragment key={index}>
 									<Card
 										imageSrc={item.flags.png}
@@ -62,7 +72,7 @@ function Country() {
 								</Fragment>
 						  ))}
 
-					{hasSearch &&
+					{/* {hasSearch &&
 						searchCountry?.map((item, index) => (
 							<Fragment key={index}>
 								<Card
@@ -71,7 +81,7 @@ function Country() {
 									population={item.population}
 								/>
 							</Fragment>
-						))}
+						))} */}
 				</div>
 			</div>
 		</section>

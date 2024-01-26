@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	isSelected: undefined,
-	hasSearch: null
+	hasSearch: undefined
 };
 
 const dataSlice = createSlice({
